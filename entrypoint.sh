@@ -2,6 +2,8 @@
 
 env
 
+pwd
+
 ls -lsa
 
 echo "ARGS $@"
