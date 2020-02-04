@@ -1,5 +1,9 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+env
+
+ls -lsa
+
+echo "ARGS $@"
+
+echo ::set-output name=time::`ls -lsa`
