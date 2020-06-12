@@ -10,7 +10,7 @@ if [[ $INPUT_REMOTE =~ $re ]]; then
     user=${BASH_REMATCH[4]}
     repo=${BASH_REMATCH[5]}
 else
-    echo "Unable to analyse git remote url."
+    echo "Unable to analyse git remote url (${INPUT_REMOTE})."
     exit 1
 fi
 
