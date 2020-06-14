@@ -1,19 +1,5 @@
 #!/bin/bash -l
 
-# check the current INPUT_REMOTE value
-re="^(https|git)(:\/\/|@)([^\/:]+)[\/:]([^\/:]+)\/(.+).git$"
-
-if [[ $INPUT_REMOTE =~ $re ]]; then
-    protocol=${BASH_REMATCH[1]}
-    separator=${BASH_REMATCH[2]}
-    hostname=${BASH_REMATCH[3]}
-    user=${BASH_REMATCH[4]}
-    repo=${BASH_REMATCH[5]}
-else
-    echo "Unable to analyse git remote url (${INPUT_REMOTE})."
-    exit 1
-fi
-
 # check the current target branch
 re="^refs/heads/(.*)$"
 if [[ $GITHUB_REF =~ $re ]]; then
