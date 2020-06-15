@@ -1,7 +1,9 @@
-#!/bin/bash -l
+#!/bin/bash
 
 # check the current INPUT_REMOTE value
-re="^([a-z0-9A-Z]+)(:\/\/|@)([^\/:]+)[\/:](.+).git$"
+re='^([a-z0-9A-Z]+)(:\/\/|@)([^\/:]+)[\/:](.+).git$'
+
+echo $INPUT_REMOTE;
 
 if [[ $INPUT_REMOTE =~ $re ]]; then
     hostname=${BASH_REMATCH[3]}
@@ -9,6 +11,8 @@ else
     echo "Unable to analyse git remote url (${INPUT_REMOTE})."
     exit 1
 fi
+
+echo "Hostname: ${hostname}"
 
 # check the current target branch
 re="^refs/heads/(.*)$"
